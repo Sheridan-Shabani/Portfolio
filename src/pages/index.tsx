@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sheridan Shabani - Portfolio</title>
+          <title>Sheridan Shabani - Accueil</title>
       </Head>
       <main>
           <div className={"flex"}>
