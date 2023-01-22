@@ -23,7 +23,7 @@ export const Header = () => {
                 }}
                 className={"flex flex-row items-center flex-1 justify-start space-x-3"}>
                 <Image src={"/logo.png"} alt={"logo"}
-                       width={50} height={50}
+                       width={32} height={32}
                        priority/>
                 <h1 className={""}>
                     Sheridan
