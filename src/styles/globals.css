@@ -9,6 +9,6 @@
 
 @layer components {
     .navButton {
-        @apply px-6 py-2 border-[#242424] rounded-full uppercase text-sm tracking-widest transition-all hover:border-[#0075af]/40 hover:text-[#0075af]/40
+        @apply px-6 py-2 rounded-full uppercase text-sm tracking-widest transition-all hover:border hover:border-[#0075af]/40 hover:text-[#0075af]/40
     }
 }

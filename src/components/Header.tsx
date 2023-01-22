@@ -3,6 +3,7 @@ import Image from "next/image";
 import {motion} from "framer-motion";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSun} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export const Header = () => {
     return (
@@ -45,12 +46,25 @@ export const Header = () => {
                     duration: 1.5,
                 }}
                 className={"flex flex-row items-center flex-1 justify-center"}>
-                <nav className={"flex flex-row items-center"}>
-                    <button className={"navButton"}>HOME</button>
-                    <button className={"navButton"}>ABOUT</button>
-                    <button className={"navButton"}>PORTFOLIO</button>
-                    <button className={"navButton"}>RESUME</button>
-                    <button className={"navButton"}>CONTACT</button>
+                <nav className={"flex flex-row items-center space-x-3"}>
+                    <Link href={"#hero"}>
+                        <button className={"navButton"}>HOME</button>
+                    </Link>
+                    <Link href={"#about"}>
+                        <button className={"navButton"}>ABOUT</button>
+                    </Link>
+                    <Link href={"#portfolio"}>
+                        <button className={"navButton"}>PORTFOLIO</button>
+                    </Link>
+                    <Link href={"#resume"}>
+                        <button className={"navButton"}>RESUME</button>
+                    </Link>
+                    <Link href={"#skills"}>
+                        <button className={"navButton"}>SKILLS</button>
+                    </Link>
+                    <Link href={"#contact"}>
+                        <button className={"navButton"}>CONTACT</button>
+                    </Link>
                 </nav>
             </motion.div>
             <motion.div
@@ -70,7 +84,7 @@ export const Header = () => {
                 className={"flex flex-1 justify-end space-x-3 items-center"}>
                 <button>FRA</button>
                 <button>ENG</button>
-                <FontAwesomeIcon className={"px-10"} size={"lg"} icon={faSun} beat/>
+                <button><FontAwesomeIcon className={"px-10"} size={"lg"} icon={faSun} beat/></button>
             </motion.div>
         </header>
 
