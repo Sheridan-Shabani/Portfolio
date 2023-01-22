@@ -45,12 +45,12 @@ export const Header = () => {
                     duration: 1.5,
                 }}
                 className={"flex flex-row items-center flex-1 justify-center"}>
-                <nav className={"flex flex-row items-center space-x-3"}>
-                    <a className={""}>HOME</a>
-                    <a>ABOUT</a>
-                    <a>PORTFOLIO</a>
-                    <a>RESUME</a>
-                    <a>CONTACT</a>
+                <nav className={"flex flex-row items-center"}>
+                    <button className={"navButton"}>HOME</button>
+                    <button className={"navButton"}>ABOUT</button>
+                    <button className={"navButton"}>PORTFOLIO</button>
+                    <button className={"navButton"}>RESUME</button>
+                    <button className={"navButton"}>CONTACT</button>
                 </nav>
             </motion.div>
             <motion.div
@@ -68,8 +68,8 @@ export const Header = () => {
                     duration: 1.5,
                 }}
                 className={"flex flex-1 justify-end space-x-3 items-center"}>
-                <a>FRA</a>
-                <a>ENG</a>
+                <button>FRA</button>
+                <button>ENG</button>
                 <FontAwesomeIcon className={"px-10"} size={"lg"} icon={faSun} beat/>
             </motion.div>
         </header>
