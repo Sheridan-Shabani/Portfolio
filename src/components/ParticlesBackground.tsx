@@ -40,7 +40,7 @@ const ParticlesBackground = () => {
                                    quantity: 4,
                                },
                                repulse: {
-                                   distance: 50,
+                                   distance: 200,
                                    duration: 0.4,
                                },
                            },
@@ -74,7 +74,7 @@ const ParticlesBackground = () => {
                                    enable: true,
                                    area: 800,
                                },
-                               value: 80,
+                               value: 60,
                            },
                            opacity: {
                                value: 0.5,
