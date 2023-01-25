@@ -47,20 +47,20 @@ export const Header = () => {
                 }}
                 className={"flex flex-row items-center flex-1 justify-center"}>
                 <nav className={"flex flex-row items-center space-x-3"}>
-                    <Link href={"#hero"}>
-                        <button className={"navButton"}>HOME</button>
-                    </Link>
                     <Link href={"#about"}>
                         <button className={"navButton"}>ABOUT</button>
                     </Link>
-                    <Link href={"#portfolio"}>
-                        <button className={"navButton"}>PORTFOLIO</button>
+                    <Link href={"#experience"}>
+                        <button className={"navButton"}>EXEPRIENCE</button>
                     </Link>
-                    <Link href={"#resume"}>
-                        <button className={"navButton"}>RESUME</button>
+                    <Link href={"#education"}>
+                        <button className={"navButton"}>EDUCATION</button>
                     </Link>
                     <Link href={"#skills"}>
                         <button className={"navButton"}>SKILLS</button>
+                    </Link>
+                    <Link href={"#portfolio"}>
+                        <button className={"navButton"}>PORTFOLIO</button>
                     </Link>
                     <Link href={"#contact"}>
                         <button className={"navButton"}>CONTACT</button>

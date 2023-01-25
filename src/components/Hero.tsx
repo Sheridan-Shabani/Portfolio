@@ -1,6 +1,8 @@
 import React from "react"
 import {Cursor, useTypewriter} from "react-simple-typewriter";
 import Image from "next/image";
+import VisibilitySensor from 'react-visibility-sensor';
+
 
 export const Hero = () => {
     const [text, count] = useTypewriter({
@@ -14,19 +16,29 @@ export const Hero = () => {
         delaySpeed: 2000,
     });
 
+    const [isVisible, setIsVisible] = React.useState(false);
+
     return (
-        <div className={"h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden"}>
+        <div className={"h-screen flex flex-col space-y-8 items-center justify-center text-center"}>
             <Image className={"relative rounded-full mx-auto h-32 w-32 object-cover"} src={"/pictureB.png"} alt={"My picture"}
                    width={80}
             height={50} priority/>
+            <VisibilitySensor
+                onChange={(isVisible: boolean) => setIsVisible(isVisible)}
+            >
             <div className={"z-20"}>
                 <h3 className={"text-sm uppercase text-[#0075af] pb-2 tracking-[15px]"}>System Engineer</h3>
                 <h2 className={"text-5xl lg:text-6xl font-semibold px-10"}>
-                    <span className={"mr-3"}>{text}</span>
-                    <Cursor cursorColor={"#0075af"}/>
+                    {isVisible && (
+                        <>
+                            <span className="mr-3">{text}</span>
+                            <Cursor cursorColor={"#0075af"}/>
+                        </>
+
+                    )}
                 </h2>
             </div>
-
+            </VisibilitySensor>
         </div>
     )
 }
