@@ -1,8 +1,12 @@
+import { motion } from "framer-motion"
 import React from "react"
 
 export const About = () => {
     return (
-        <div
+        <motion.div
+            initial={{opacity: 0}}
+            whileInView={{opacity: 1}}
+            transition={{duration: 1.5}}
             className={"flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"}>
             <h3 className={"absolute top-24 uppercase text-[#0075af] tracking-[20px] text-2xl"}>
                 About
@@ -11,7 +15,7 @@ export const About = () => {
                 <h4 className={"text-4xl font-semibold"}>
                     Here is a little background
                 </h4>
-                <p className={"text-sm"}>
+                <p className={"text-base"}>
                     Welcome to my world, that of Sheridan SHABANI, your computer prodigy. At 24, I am currently an
                     apprentice engineer at CESI in Arras, but don&apos;t be fooled.
                     <br/><br/>
@@ -32,6 +36,6 @@ export const About = () => {
                     look no further.
                 </p>
             </div>
-        </div>
+        </motion.div>
     )
 }
