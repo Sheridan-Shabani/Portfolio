@@ -28,7 +28,7 @@ export const Hero = () => {
             >
             <div className={""}>
                 <h3 className={"text-sm uppercase text-[#0075af] pb-2 tracking-[15px]"}>System Engineer</h3>
-                <h2 className={"text-5xl lg:text-6xl font-semibold px-10"}>
+                <h2 className={"text-3xl lg:text-6xl font-semibold px-10"}>
                     {isVisible && (
                         <>
                             <span className="mr-3">{text}</span>

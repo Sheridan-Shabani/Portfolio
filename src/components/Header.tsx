@@ -112,6 +112,30 @@ export const Header = (
                     onClick={() => setIsNavOpen(false)}>
                         <FontAwesomeIcon icon={faXmark} size={"lg"} fade/>
                     </button>
+                    <nav  className={"flex flex-col space-y-6 text-center"}>
+                        <Link href={"#about"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>ABOUT</button>
+                        </Link>
+                        <Link href={"#experience"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>EXEPRIENCE</button>
+                        </Link>
+                        <Link href={"#education"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>EDUCATION</button>
+                        </Link>
+                        <Link href={"#skills"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>SKILLS</button>
+                        </Link>
+                        <Link href={"#portfolio"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>PORTFOLIO</button>
+                        </Link>
+                        <Link href={"#contact"} onClick={() => setIsNavOpen(false)}>
+                            <button className={"navButton"}>CONTACT</button>
+                        </Link>
+                    </nav>
+                    <div className={"space-x-3 text-xs"}>
+                        <button>FRA</button>
+                        <button>ENG</button>
+                    </div>
                 </div>
             </motion.div>
         </div>
