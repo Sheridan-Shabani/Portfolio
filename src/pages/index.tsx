@@ -8,7 +8,9 @@ import {Experience} from "@/components/Experience";
 
 const inter = Inter({subsets: ['latin']})
 
-export default function Home() {
+export default function Home(
+
+) {
     return (
         <>
             <Head>
@@ -18,13 +20,13 @@ export default function Home() {
                 <div className={"h-screen snap-y snap-mandatory overflow-scroll"}>
                     <ParticlesBackground/>
                     <Header/>
-                    <section id={"hero"} className={"snap-start"}>
+                    <section id={"hero"} className={"relative snap-start z-1"}>
                         <Hero/>
                     </section>
-                    <section id={'about'} className={"snap-center"}>
+                    <section id={'about'} className={"relative snap-center z-1"}>
                         <About/>
                     </section>
-                    <section id={'experience'} className={"snap-center"}>
+                    <section id={'experience'} className={"relative snap-center z-1"}>
                         <Experience/>
                     </section>
                 </div>

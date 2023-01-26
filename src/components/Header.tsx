@@ -5,10 +5,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSun, faBars, faXmark} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-export const Header = () => {
+export const Header = (
+) => {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
     return (
-        <header className={"sticky top-0 flex items-start justify-between items-center w-full px-10 pt-4 z-100"}>
+        <div className={"z-20 sticky top-0 flex items-start justify-between items-center w-full px-10 pt-4 z-100"}>
             <motion.div
                 initial={{
                     x: -500,
@@ -113,7 +114,7 @@ export const Header = () => {
                     </button>
                 </div>
             </motion.div>
-        </header>
+        </div>
 
     )
 }
