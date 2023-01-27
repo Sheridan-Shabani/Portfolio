@@ -1,9 +1,11 @@
 import React from "react";
 import {motion} from "framer-motion";
+import Image from "next/image";
 
 export const ExperienceCard = () => {
     return (
-        <article className={"flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"}>
+        <article
+            className={"flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"}>
             <motion.img
                 initial={{
                     y: -100,
@@ -21,18 +23,22 @@ export const ExperienceCard = () => {
                 <p className={"font-bold text-2xl mt1"}>Médiamétrie</p>
 
                 <div className={"flex space-x-2 my-2"}>
-                    <img className={"h-10 w-10 rounded-full"}
-                        src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/2560px-Avaya_Logo.svg.png?20100531082427"}
-                        alt={"Logo avaya"}/>
-                    <img className={"h-10 w-10 rounded-full"}
-                         src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/2560px-Avaya_Logo.svg.png?20100531082427"}
-                         alt={"Logo avaya"}/>
-                    <img className={"h-10 w-10 rounded-full"}
-                         src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/2560px-Avaya_Logo.svg.png?20100531082427"}
-                         alt={"Logo avaya"}/>
-                    <img className={"h-10 w-10 rounded-full"}
-                         src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/2560px-Avaya_Logo.svg.png?20100531082427"}
-                         alt={"Logo avaya"}/>
+                    <div className={"relative h-10 w-10 rounded-full"}>
+                        <Image src={"/Avaya_Logo.svg.png"}
+                            alt={"Logo avaya"} fill className={"object-contain"}/>
+                    </div>
+                    <div className={"relative h-10 w-10 rounded-full"}>
+                        <Image src={"/Avaya_Logo.svg.png"}
+                               alt={"Logo avaya"} fill className={"object-contain"}/>
+                    </div>
+                    <div className={"relative h-10 w-10 rounded-full"}>
+                        <Image src={"/Avaya_Logo.svg.png"}
+                               alt={"Logo avaya"} fill className={"object-contain"}/>
+                    </div>
+                    <div className={"relative h-10 w-10 rounded-full"}>
+                        <Image src={"/Avaya_Logo.svg.png"}
+                               alt={"Logo avaya"} fill className={"object-contain"}/>
+                    </div>
                 </div>
 
                 <p className={"uppercase py-5 text-gray-300"}>

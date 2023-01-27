@@ -59,9 +59,6 @@ export const Header = (
                     <Link href={"#education"}>
                         <button className={"navButton"}>EDUCATION</button>
                     </Link>
-                    <Link href={"#skills"}>
-                        <button className={"navButton"}>SKILLS</button>
-                    </Link>
                     <Link href={"#portfolio"}>
                         <button className={"navButton"}>PORTFOLIO</button>
                     </Link>
@@ -121,9 +118,6 @@ export const Header = (
                         </Link>
                         <Link href={"#education"} onClick={() => setIsNavOpen(false)}>
                             <button className={"navButton"}>EDUCATION</button>
-                        </Link>
-                        <Link href={"#skills"} onClick={() => setIsNavOpen(false)}>
-                            <button className={"navButton"}>SKILLS</button>
                         </Link>
                         <Link href={"#portfolio"} onClick={() => setIsNavOpen(false)}>
                             <button className={"navButton"}>PORTFOLIO</button>
