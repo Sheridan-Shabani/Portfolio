@@ -9,7 +9,7 @@ export const Header = (
 ) => {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
     return (
-        <div className={"z-20 sticky top-0 flex items-start justify-between items-center w-full px-10 pt-4 z-100"}>
+        <div className={"z-20 sticky top-0 flex items-start justify-between items-center w-full px-10 pt-4 z-100 backdrop-blur-sm"}>
             <motion.div
                 initial={{
                     x: -500,
@@ -105,12 +105,12 @@ export const Header = (
                 }}
                 className={"flex lg:hidden flex-1 justify-end"}>
                 <button onClick={() => setIsNavOpen((prev) => !prev)}>
-                    <FontAwesomeIcon icon={faBars} size={"lg"} fade/>
+                    <FontAwesomeIcon icon={faBars} size={"lg"}/>
                 </button>
                 <div className={isNavOpen ? "showMenu" : "hideMenu"}>
                     <button className={"absolute top-0 right-0 px-8 py-8"}
                     onClick={() => setIsNavOpen(false)}>
-                        <FontAwesomeIcon icon={faXmark} size={"lg"} fade/>
+                        <FontAwesomeIcon icon={faXmark} size={"lg"}/>
                     </button>
                     <nav  className={"flex flex-col space-y-6 text-center"}>
                         <Link href={"#about"} onClick={() => setIsNavOpen(false)}>
@@ -132,14 +132,19 @@ export const Header = (
                             <button className={"navButton"}>CONTACT</button>
                         </Link>
                     </nav>
-                    <div className={"space-x-3 text-xs"}>
-                        <button>FRA</button>
-                        <button>ENG</button>
+                    <div className={"flex flex-col space-y-6"}>
+                        <div className={"space-x-3 text-xs flex justify-center"}>
+                            <button>FRA</button>
+                            <button>ENG</button>
+                        </div>
+                        <button
+                            className={""}>
+                            <FontAwesomeIcon className={"px-10"} size={"sm"} icon={faSun} beat/>
+                        </button>
                     </div>
                 </div>
             </motion.div>
         </div>
-
     )
 }
 
