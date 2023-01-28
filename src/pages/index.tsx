@@ -30,7 +30,7 @@ export default function Home(
                     <section id={'experience'} className={"relative snap-center z-1"}>
                         <Experience/>
                     </section>
-                    <section id={'portfolio'} className={"relative snap-start z-1"}>
+                    <section id={'projects'} className={"relative snap-start z-1"}>
                         <Portfolio/>
                     </section>
                 </div>
