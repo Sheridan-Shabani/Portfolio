@@ -15,12 +15,12 @@ export const Projects = () => {
                 Projects
             </h3>
 
-            <div className={"relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-10"}>
+            <div className={"relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrollbar scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#0075af]/80 z-10"}>
 
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        className={"w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-full"}>
+                        className={"w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"}>
 
                         <div className={"relative h-[200px] w-[300px]"}>
                             <Image src={"/LOGO_MEDIAMETRIE_RVB.png"} alt={"Image case study"} fill

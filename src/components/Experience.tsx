@@ -12,7 +12,7 @@ export const Experience = () => {
             <h3 className={"absolute top-24 uppercase text-[#0075af] tracking-[20px] text-2xl"}>
                 EXPERIENCE
             </h3>
-            <div className={"w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"}>
+            <div className={"w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#0075af]/80"}>
                 <ExperienceCard/>
                 <ExperienceCard/>
                 <ExperienceCard/>
