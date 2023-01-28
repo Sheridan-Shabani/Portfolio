@@ -29,7 +29,7 @@ export const Projects = () => {
 
                         <div className={"space-y-10 px-0 md:px-10 maw-w-6xl"}>
                             <h4 className={"text-4xl font-semibold text-center"}>
-                                <span className={"underline"}>
+                                <span className={"underline decoration-[#0075af]/50"}>
                                     Case Study {index + 1} of {projects.length}:
                                 </span> {" "}
                                 FaceBouffe
@@ -44,7 +44,7 @@ export const Projects = () => {
                     </div>
                 ))}
             </div>
-            <div className={"w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12"}>
+            <div className={"w-full absolute top-[30%] bg-[#0075af]/10 left-0 h-[500px] -skew-y-12"}>
             </div>
         </motion.div>
     )
