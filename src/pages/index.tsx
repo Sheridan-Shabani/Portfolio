@@ -19,7 +19,7 @@ export default function Home(
                 <title>Sheridan Shabani</title>
             </Head>
             <main>
-                <div className={"h-screen snap-y snap-mandatory overflow-scroll"}>
+                <div className={"h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden"}>
                     <ParticlesBackground/>
                     <Header/>
                     <section id={"hero"} className={"relative snap-start z-1"}>

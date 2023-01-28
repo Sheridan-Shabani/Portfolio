@@ -2,10 +2,23 @@ import React from "react";
 import {motion} from "framer-motion";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhone, faEnvelope, faMapPin} from "@fortawesome/free-solid-svg-icons";
+import {useForm, SubmitHandler} from "react-hook-form";
+
+type Inputs = {
+    name: string
+    email: string
+    subject: string
+    message: string
+};
 
 export const Contact = () => {
+    const {register, handleSubmit} = useForm<Inputs>();
+    const onSubmit: SubmitHandler<Inputs> = formData => console.log(
+        window.location.href = `mailto:sheridan.shabani@outlook.fr?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
+    );
     return (
-        <div className={"h-screen flex relative flex-col text-center md-text-left md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"}>
+        <div
+            className={"h-screen flex relative flex-col text-center md-text-left md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"}>
             <h3 className={"absolute top-24 uppercase text-[#0075af] tracking-[20px] text-2xl"}>
                 Contact
             </h3>
@@ -33,13 +46,18 @@ export const Contact = () => {
                     </div>
                 </div>
 
-                <form className={"flex flex-col space-y-2 w-fit mx-auto"}>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className={"flex flex-col space-y-2 w-fit mx-auto"}>
                     <div className={"flex space-x-2"}>
-                        <input placeholder={"Name"} className={"contactInput"} type={"text"}/>
-                        <input placeholder={"Email"} className={"contactInput"} type={"email"}/>
+                        <input {...register('name', { required: true })} placeholder={"Name"} className={"contactInput"} type={"text"}/>
+                        <input {...register('email', { required: true })} placeholder={"Email"} className={"contactInput"} type={"email"}/>
                     </div>
-                    <input placeholder={"Subject"} className={"contactInput"} type={"text"}/>
-                    <textarea placeholder={"Message"} className={"contactInput"}/>
+                    <input {...register('subject', { required: true })}
+                           placeholder={"Subject"} className={"contactInput"} type={"text"}/>
+                    <textarea
+                        {...register('message', { required: true })}
+                        placeholder={"Message"} className={"contactInput"}/>
                     <button
                         type={"submit"}
                         className={"bg-[#0075af] py-5 px-10 rounded-md text-black font-bold"}>
