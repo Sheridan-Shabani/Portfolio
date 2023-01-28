@@ -2,7 +2,7 @@ import React from "react";
 import {motion} from "framer-motion";
 import Image from "next/image";
 
-export const Portfolio = () => {
+export const Projects = () => {
     const projects = [1, 2, 3, 4, 5];
     return (
         <motion.div
@@ -19,6 +19,7 @@ export const Portfolio = () => {
 
                 {projects.map((project, index) => (
                     <div
+                        key={index}
                         className={"w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-full"}>
 
                         <div className={"relative h-[200px] w-[300px]"}>
@@ -28,7 +29,9 @@ export const Portfolio = () => {
 
                         <div className={"space-y-10 px-0 md:px-10 maw-w-6xl"}>
                             <h4 className={"text-4xl font-semibold text-center"}>
-                                <span className={"underline"}>Case Study {index + 1} of {projects.length}: </span>
+                                <span className={"underline"}>
+                                    Case Study {index + 1} of {projects.length}:
+                                </span> {" "}
                                 FaceBouffe
                             </h4>
                             <p className={"text-lg text-center md:text-left"}>
