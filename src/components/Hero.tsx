@@ -3,7 +3,6 @@ import {Cursor, useTypewriter} from "react-simple-typewriter";
 import Image from "next/image";
 import VisibilitySensor from 'react-visibility-sensor';
 
-
 export const Hero = () => {
     const [text, count] = useTypewriter({
         words: [

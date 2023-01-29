@@ -11,10 +11,15 @@ import {Contact} from "@/components/Contact";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import React from "react";
+
+import {PreviewSuspense} from 'next-sanity/preview'
+
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
+
     return (
         <>
             <Head>
