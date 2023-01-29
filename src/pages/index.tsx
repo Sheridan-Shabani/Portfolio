@@ -13,8 +13,6 @@ import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import React from "react";
 
-import {PreviewSuspense} from 'next-sanity/preview'
-
 
 const inter = Inter({subsets: ['latin']})
 
@@ -49,7 +47,8 @@ export default function Home() {
 
                     <footer className={"sticky bottom-5 w-full flex items-center justify-center"}>
                         <Link href={"#hero"}>
-                            <FontAwesomeIcon icon={faCircleArrowUp} size={"xl"} color={"gray"} className={"hover:text-[#0075af]"}/>
+                            <FontAwesomeIcon icon={faCircleArrowUp} size={"xl"} color={"gray"}
+                                             className={"hover:text-[#0075af]"}/>
                         </Link>
                     </footer>
 
