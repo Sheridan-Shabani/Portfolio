@@ -1,7 +1,10 @@
 import { motion } from "framer-motion"
 import React from "react"
+import {groq} from "next-sanity";
+import {client} from "../../lib/sanity.client";
 
 export const About = () => {
+
     return (
         <motion.div
             initial={{opacity: 0}}

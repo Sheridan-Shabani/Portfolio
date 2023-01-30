@@ -10,4 +10,4 @@ export const client = createClient({
     apiVersion,
     useCdn: false,
 })
-const data = await client.fetch(groq`*[]`)
+/*const data = await client.fetch(groq`*[]`)*/

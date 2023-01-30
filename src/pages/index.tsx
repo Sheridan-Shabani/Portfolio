@@ -13,10 +13,30 @@ import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import React from "react";
 
+import {client} from "../../lib/sanity.client";
+import {GetStaticProps} from "next";
+import {fetchPageInfo} from "../../utils/fetchPageInfo";
+
 
 const inter = Inter({subsets: ['latin']})
 
-export default function Home() {
+type Props = {
+    pageInfo: PageInfo;
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const pageInfo: PageInfo = await  fetchPageInfo();
+
+    return {
+        props: {
+            pageInfo
+        },
+
+        revalidate: 10
+    }
+}
+
+export default function Home({pageInfo}: Props) {
 
     return (
         <>
@@ -29,7 +49,7 @@ export default function Home() {
                     <ParticlesBackground/>
                     <Header/>
                     <section id={"hero"} className={"relative snap-start z-1"}>
-                        <Hero/>
+                        <Hero pageInfo={pageInfo}/>
                     </section>
                     <section id={'about'} className={"relative snap-center z-1"}>
                         <About/>
