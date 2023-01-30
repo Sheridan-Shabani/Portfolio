@@ -4,7 +4,7 @@ import {PreviewSuspense} from 'next-sanity/preview'
 import {LazyPreviewPage} from '@/page/LazyPreviewPage'
 import {LoadingScreen} from '@/page/LoadingScreen'
 import {PageScreen} from '@/page/PageScreen'
-import {PAGE_DATA_QUERY} from '@/page/query'
+import {PAGE_DATA_QUERY, PAGE_PATHS_QUERY} from '@/page/query'
 import {PageData} from '@/page/types'
 import {client} from '@/sanity/client'
 
@@ -24,9 +24,7 @@ interface PreviewData {
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
-  const {preview = false, previewData = {}} = ctx
-
-  const params = {slug: 'home'}
+  const {params = {}, preview = false, previewData = {}} = ctx
 
   if (preview && previewData.token) {
     return {
@@ -49,6 +47,12 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
       token: null,
     },
   }
+}
+
+export const getStaticPaths = async () => {
+  const data = await client.fetch<{slug: string}[] | null>(PAGE_PATHS_QUERY)
+
+  return {paths: data?.map((d) => `/${d.slug}`) || [], fallback: false}
 }
 
 export default function Page(props: PageProps) {
