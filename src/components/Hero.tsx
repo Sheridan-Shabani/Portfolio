@@ -4,7 +4,7 @@ import Image from "next/image";
 import VisibilitySensor from 'react-visibility-sensor';
 
 export const Hero = () => {
-    const [text, count] = useTypewriter({
+    const [text] = useTypewriter({
         words: [
             `Hi! I'm Sheridan`,
             "I like system",

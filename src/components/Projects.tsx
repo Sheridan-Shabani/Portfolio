@@ -32,7 +32,7 @@ export const Projects = () => {
                                 <span className={"underline decoration-[#0075af]/50"}>
                                     Case Study {index + 1} of {projects.length}:
                                 </span> {" "}
-                                FaceBouffe
+                                FaceBouffe, {project}
                             </h4>
                             <p className={"text-lg text-center md:text-left"}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies porttitor enim

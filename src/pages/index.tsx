@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import {Inter} from '@next/font/google'
 import {Header} from "@/components/Header";
 import {Hero} from "@/components/Hero";
 import ParticlesBackground from "@/components/ParticlesBackground";
@@ -13,7 +12,6 @@ import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import React from "react";
 
-const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
 

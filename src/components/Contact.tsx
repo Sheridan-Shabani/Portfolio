@@ -1,5 +1,4 @@
 import React from "react";
-import {motion} from "framer-motion";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhone, faEnvelope, faMapPin} from "@fortawesome/free-solid-svg-icons";
 import {useForm, SubmitHandler} from "react-hook-form";
