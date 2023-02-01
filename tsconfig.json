@@ -4,9 +4,6 @@
     ".next/types/**/*.ts",
     "./next-env.d.ts",
     "./src",
-    "./sanity-env.d.ts",
-    "./sanity.cli.ts",
-    "./sanity.config.ts"
   ],
   "exclude": ["node_modules"],
   "compilerOptions": {
@@ -20,7 +17,6 @@
     "jsx": "preserve",
     "plugins": [{"name": "next"}],
     "paths": {
-      "sanity.config": ["./sanity.config.ts"],
       "@/*": ["./src/*"]
     }
   }

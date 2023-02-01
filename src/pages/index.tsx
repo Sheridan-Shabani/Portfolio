@@ -1,66 +1,57 @@
-import {GetStaticProps} from 'next'
-import {PreviewSuspense} from 'next-sanity/preview'
+import Head from 'next/head'
+import {Header} from "@/components/Header";
+import {Hero} from "@/components/Hero";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import {About} from "@/components/About";
+import {Experience} from "@/components/Experience";
+import {Projects} from "@/components/Projects";
+import {Contact} from "@/components/Contact";
 
-import {LazyPreviewPage} from '@/page/LazyPreviewPage'
-import {LoadingScreen} from '@/page/LoadingScreen'
-import {PageScreen} from '@/page/PageScreen'
-import {PAGE_DATA_QUERY} from '@/page/query'
-import {PageData} from '@/page/types'
-import {client} from '@/sanity/client'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import React from "react";
 
-interface PageProps {
-  data: PageData | null
-  preview: boolean
-  slug: string | null
-  token: string | null
-}
 
-interface Query {
-  [key: string]: string
-}
+export default function Home() {
 
-interface PreviewData {
-  token?: string
-}
-
-export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
-  const {preview = false, previewData = {}} = ctx
-
-  const params = {slug: 'home'}
-
-  if (preview && previewData.token) {
-    return {
-      props: {
-        data: null,
-        preview,
-        slug: params?.slug || null,
-        token: previewData.token,
-      },
-    }
-  }
-
-  const data = await client.fetch<PageData | null>(PAGE_DATA_QUERY, params)
-
-  return {
-    props: {
-      data,
-      preview,
-      slug: params?.slug || null,
-      token: null,
-    },
-  }
-}
-
-export default function Page(props: PageProps) {
-  const {data, preview, slug, token} = props
-
-  if (preview) {
     return (
-      <PreviewSuspense fallback={<LoadingScreen>Loading preview…</LoadingScreen>}>
-        <LazyPreviewPage slug={slug} token={token} />
-      </PreviewSuspense>
-    )
-  }
+        <>
+            <Head>
+                <title>Sheridan Shabani</title>
+            </Head>
+            <main>
+                <div
+                    className={"h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#0075af]/80"}>
+                    <ParticlesBackground/>
+                    <Header/>
+                    <section id={"hero"} className={"relative snap-start z-1"}>
+                        <Hero/>
+                    </section>
+                    <section id={'about'} className={"relative snap-center z-1"}>
+                        <About/>
+                    </section>
+                    <section id={'experience'} className={"relative snap-center z-1"}>
+                        <Experience/>
+                    </section>
+                    <section id={'projects'} className={"relative snap-start z-1"}>
+                        <Projects/>
+                    </section>
+                    <section id={'contact'} className={"relative snap-start z-1"}>
+                        <Contact/>
+                    </section>
 
-  return <PageScreen data={data} />
+
+                    <footer className={"sticky bottom-5 w-full flex items-center justify-center"}>
+                        <Link href={"#hero"}>
+                            <FontAwesomeIcon icon={faCircleArrowUp} size={"xl"} color={"gray"}
+                                             className={"hover:text-[#0075af]"}/>
+                        </Link>
+                    </footer>
+
+
+                </div>
+            </main>
+        </>
+    )
 }
