@@ -19,16 +19,6 @@ interface Image {
     }
 }
 
-interface PageInfo extends Base {
-    address: string;
-    backgroundInfo: string;
-    email: string;
-    role: string;
-    heroImage: Image;
-    name: string;
-    phoneNumber: string;
-}
-
 interface Technology extends Base {
     image: Image;
     title: string;

@@ -10,25 +10,26 @@ import {Contact} from "@/components/Contact";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import React, {useEffect} from "react";
+import React/*, {useEffect}*/ from "react";
 
 
-import {collection, getDocs} from "firebase/firestore";
-import {firestore} from "@/firebase";
+/*import {doc, getDocs} from "firebase/firestore";
+import {firestore} from "@/firebase";*/
 
 export default function Home() {
 
-    useEffect(()=> {
+    /*useEffect(()=> {
         ;(async () => {
-            const colRef = collection(firestore, 'en')
+            const colRef = doc(firestore, 'en', 'profile')
 
+            // @ts-ignore
             const snapshots = await getDocs(colRef)
 
-            const docs = snapshots.docs.map((doc) => doc.data())
+            console.log(snapshots)
 
-            console.log(docs)
+            //console.log(docs)
         })()
-    })
+    })*/
 
     return (
         <>
