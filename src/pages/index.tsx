@@ -18,8 +18,8 @@ import {experiencesRef} from "@/types/Experiences";
 
 
 export default function Home() {
-    const [profile, profileLoading, profileError] = useDocumentData(profileRef)
-    const [experiences, experiencesLoading, experiencesError] = useCollectionData(experiencesRef)
+    const [profile/*, profileLoading, profileError*/] = useDocumentData(profileRef)
+    const [experiences/*, experiencesLoading, experiencesError*/] = useCollectionData(experiencesRef)
 
     return (
         <>

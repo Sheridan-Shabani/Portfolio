@@ -7,7 +7,7 @@ import {companyConverter} from "@/types/Company";
 
 export const ExperienceCard = (props: {experience: Experiences}) => {
 
-    const [company, companyLoading, companyError] = useDocumentData(props.experience.info.withConverter(companyConverter))
+    const [company/*, companyLoading, companyError*/] = useDocumentData(props.experience.info.withConverter(companyConverter))
 
     console.log(company)
 
