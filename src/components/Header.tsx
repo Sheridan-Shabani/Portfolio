@@ -28,7 +28,7 @@ export const Header = (
                 <Image src={"/logo.png"} alt={"logo"}
                        width={32} height={32}
                        priority/>
-                <h1 className={""}>
+                <h1 className={"text-sm"}>
                     Sheridan
                     SHABANI
                 </h1>

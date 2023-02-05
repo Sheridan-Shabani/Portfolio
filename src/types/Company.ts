@@ -1,19 +1,19 @@
-import {Technology} from "@/types/Technology";
 import {
     DocumentData, DocumentReference,
     FirestoreDataConverter,
     QueryDocumentSnapshot,
     SnapshotOptions,
-    WithFieldValue
+    WithFieldValue,
+    Timestamp
 } from "firebase/firestore";
 
 export interface Company {
     companyImage: string;
-    dateEnded: Date;
-    dateStarted: Date;
+    dateEnded: Timestamp;
+    dateStarted: Timestamp;
     isCurrentWork: boolean;
     name: string
-    technologies: Technology[];
+    technologies: DocumentReference<DocumentData>[];
     ref: DocumentReference<DocumentData>;
     id: string;
 }
@@ -46,7 +46,3 @@ export const companyConverter: FirestoreDataConverter<Company> = {
         };
     },
 };
-
-export function getCompanyRef(companyRef: DocumentReference<DocumentData>) {
-    return companyRef.withConverter(companyConverter)
-}

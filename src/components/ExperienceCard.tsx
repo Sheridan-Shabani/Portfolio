@@ -1,19 +1,29 @@
 import React from "react";
 import {motion} from "framer-motion";
-import Image from "next/image";
 import {Experiences} from "@/types/Experiences";
 import {useDocumentData} from "react-firebase-hooks/firestore";
 import {companyConverter} from "@/types/Company";
+import {TechnologyIcon} from "@/components/TechnologyIcon";
 
-export const ExperienceCard = (props: {experience: Experiences}) => {
+export const ExperienceCard = (props: { experience: Experiences }) => {
 
     const [company/*, companyLoading, companyError*/] = useDocumentData(props.experience.info.withConverter(companyConverter))
 
-    console.log(company)
+    const enDateStarted = company?.dateStarted.toDate().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+    });
+
+    const enDateEnded = company?.isCurrentWork ? "Today" : company?.dateEnded.toDate().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+    });
 
     return (
         <article
-            className={"flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"}>
+            className={"flex flex-col rounded-lg items-center md:space-y-7 flex-shrink-0 w-screen md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-5 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"}>
             <motion.img
                 initial={{
                     y: -100,
@@ -22,42 +32,43 @@ export const ExperienceCard = (props: {experience: Experiences}) => {
                 transition={{duration: 1.2}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true}}
-                src={"/LOGO_MEDIAMETRIE_RVB.png"} alt={"Logo Médiamétrie"}
-                className={"w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"}/>
-            <div className={"px-0 md:px-10"}>
+                src={company?.companyImage} alt={company?.name}
+                className={"hidden md:block w-20 h-20 md:w-32 md:h-32 xl:w-[200px] xl:h-[200px] object-center"}/>
+            <div className={"px-7 md:px-10"}>
+                <div className={"flex flex-row items-center"}>
+                    <motion.img
+                        initial={{
+                            y: -100,
+                            opacity: 0,
+                        }}
+                        transition={{duration: 1.2}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true}}
+                        src={company?.companyImage} alt={company?.name}
+                        className={"md:hidden w-20 h-20 md:w-32 md:h-32 xl:w-[200px] xl:h-[200px] object-center mr-2"}/>
+                    <div>
+                        <h4 className={"text-xl md:text-4xl font-light"}>{props.experience.jobTitle}</h4>
 
-                <h4 className={"text-4xl font-light"}>{props.experience.jobTitle}</h4>
-
-                <p className={"font-bold text-2xl mt1"}>{company?.name}</p>
-
-                <div className={"flex space-x-2 my-2"}>
-                    <div className={"relative h-10 w-10 rounded-full"}>
-                        <Image src={"/Avaya_Logo.svg.png"}
-                            alt={"Logo avaya"} fill className={"object-contain"}/>
-                    </div>
-                    <div className={"relative h-10 w-10 rounded-full"}>
-                        <Image src={"/Avaya_Logo.svg.png"}
-                               alt={"Logo avaya"} fill className={"object-contain"}/>
-                    </div>
-                    <div className={"relative h-10 w-10 rounded-full"}>
-                        <Image src={"/Avaya_Logo.svg.png"}
-                               alt={"Logo avaya"} fill className={"object-contain"}/>
-                    </div>
-                    <div className={"relative h-10 w-10 rounded-full"}>
-                        <Image src={"/Avaya_Logo.svg.png"}
-                               alt={"Logo avaya"} fill className={"object-contain"}/>
+                        <p className={"font-bold text-lg md:text-2xl mt-1"}>{company?.name}</p>
                     </div>
                 </div>
 
-                <p className={"uppercase py-5 text-gray-300"}>
-                    Started work ... -Ended ...</p>
 
-                <ul className={"list-disc space-y-4 ml-5 text-lg"}>
-                    <li>SummaryPoints</li>
-                    <li>SummaryPoints</li>
-                    <li>SummaryPoints</li>
-                    <li>SummaryPoints</li>
-                    <li>SummaryPoints</li>
+                {company?.technologies &&
+                    <div className={"flex space-x-2 my-1"}>
+                        {company?.technologies.map((technologyRef, index) => (
+                            <TechnologyIcon key={index} technologyRef={technologyRef}/>
+                        ))}
+                    </div>}
+
+                <p className={"py-1 text-gray-300"}>
+                    {enDateStarted} - {enDateEnded}
+                </p>
+
+                <ul className={"list-disc space-y-2 ml-5 text-sm md:text-base"}>
+                    {props.experience.points.map((point, index) => (
+                        <li key={index}>{point}</li>
+                    ))}
                 </ul>
             </div>
         </article>

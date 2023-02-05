@@ -12,8 +12,10 @@ export interface Experiences {
     info: DocumentReference<DocumentData>;
     jobTitle: string;
     points: string[];
+    numberJob: number;
     ref: DocumentReference<DocumentData>;
-    id: string;}
+    id: string;
+}
 
 const experienceConverter: FirestoreDataConverter<Experiences> = {
     toFirestore(experiences: WithFieldValue<Experiences>): DocumentData {
@@ -21,6 +23,7 @@ const experienceConverter: FirestoreDataConverter<Experiences> = {
             info: experiences.info,
             jobTitle: experiences.jobTitle,
             points: experiences.points,
+            numberJob: experiences.numberJob,
         };
     },
     fromFirestore(
@@ -32,6 +35,7 @@ const experienceConverter: FirestoreDataConverter<Experiences> = {
             info: data.info,
             jobTitle: data.jobTitle,
             points: data.points,
+            numberJob: data.numberJob,
             id: snapshot.id,
             ref: snapshot.ref
         };
