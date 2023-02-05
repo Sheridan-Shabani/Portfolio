@@ -5,7 +5,7 @@ import {loadFull} from "tsparticles";
 
 const ParticlesBackground = () => {
     const particlesInit = React.useCallback(async (engine: Engine) => {
-        console.log(engine);
+        //console.log(engine);
         await loadFull(engine);
     }, []);
 
@@ -66,7 +66,7 @@ const ParticlesBackground = () => {
                                    default: "bounce",
                                },
                                random: false,
-                               speed: 2,
+                               speed: 1,
                                straight: false,
                            },
                            number: {

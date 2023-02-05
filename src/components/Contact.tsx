@@ -2,6 +2,7 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhone, faEnvelope, faMapPin} from "@fortawesome/free-solid-svg-icons";
 import {useForm, SubmitHandler} from "react-hook-form";
+import {Profile} from "@/types/Profile";
 
 type Inputs = {
     name: string
@@ -10,10 +11,10 @@ type Inputs = {
     message: string
 };
 
-export const Contact = () => {
+export const Contact = (props : {profile:Profile}) => {
     const {register, handleSubmit} = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = formData => console.log(
-        window.location.href = `mailto:sheridan.shabani@outlook.fr?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
+        window.location.href = `mailto:${props.profile.email}?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
     );
     return (
         <div
@@ -33,15 +34,15 @@ export const Contact = () => {
                 <div className={"space-y-10"}>
                     <div className={"flex items-center space-x-5 justify-center"}>
                         <FontAwesomeIcon icon={faPhone} size={"lg"} color={"#0075af"} fade/>
-                        <p className={"text-2xl"}>+33750440990</p>
+                        <p className={"text-2xl"}>{props.profile.phoneNumber}</p>
                     </div>
                     <div className={"flex items-center space-x-5 justify-center"}>
                         <FontAwesomeIcon icon={faEnvelope} size={"lg"} color={"#0075af"} fade/>
-                        <p className={"text-2xl"}>sheridan.shabani@outlook.fr</p>
+                        <p className={"text-2xl"}>{props.profile.email}</p>
                     </div>
                     <div className={"flex items-center space-x-5 justify-center"}>
                         <FontAwesomeIcon icon={faMapPin} size={"lg"} color={"#0075af"} fade/>
-                        <p className={"text-2xl"}>11 résidence des oiseaux, 62530 - Hersin-coupigny, France</p>
+                        <p className={"text-2xl"}>{props.profile.address}</p>
                     </div>
                 </div>
 

@@ -1,8 +1,8 @@
-import { initializeApp, getApp, getApps } from "firebase/app";
 import {getFirestore} from "firebase/firestore"
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
-
+import * as firebase from "firebase/app";
+import 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_APIKEY,
@@ -13,7 +13,7 @@ const firebaseConfig = {
     appId: process.env.NEXT_PUBLIC_APPID
 };
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const app = !firebase.getApps().length ? firebase.initializeApp(firebaseConfig) : firebase.getApp();
 const firestore = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
